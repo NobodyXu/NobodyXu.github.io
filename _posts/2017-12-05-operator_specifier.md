@@ -40,6 +40,21 @@ So I do some searching on Stackoverflow, and I found this [Why string concat mac
      ```c++
      template <class T>
      void destroy_at(const T *p) { p->~T(); }
+     ``` 
+     and
+     ```c++
+     #include <iostream>
+     #define OUTPUT() std::cout << __PRETTY_FUNCTION__ << std::endl
+     struct Foo {
+         ~ Foo() { OUTPUT(); }
+     };
+     template <class T>
+     void destroy_at(const T *p) { p-> ~ T(); }
+     int main() {
+         Foo *p = new Foo;
+         destroy_at(p);//Foo::~Foo()
+         return 0;
+     }
      ```
      So here I should replace the macro with the following code:
      ```c++
