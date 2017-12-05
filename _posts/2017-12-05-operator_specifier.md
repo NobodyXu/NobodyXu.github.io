@@ -38,18 +38,13 @@ So I do some searching on Stackoverflow, and I found this [Why string concat mac
      So, instead of writing `operator+`, we should write `operator +`.
      And that explain why I can write `operator Type`, `operator auto`, `template <class T> operatpr T` and sth. like:
      ```c++
-     template <class T>
-     void destroy_at(const T *p) { p->~T(); }
-     ``` 
-     and
-     ```c++
      #include <iostream>
      #define OUTPUT() std::cout << __PRETTY_FUNCTION__ << std::endl
      struct Foo {
          ~ Foo() { OUTPUT(); }
      };
      template <class T>
-     void destroy_at(const T *p) { p-> ~ T(); }
+     void destroy_at(const T *p) { p-> ~ T(); }//actually a func like this is defined in c++17 stdard header memory
      int main() {
          Foo *p = new Foo;
          destroy_at(p);//Foo::~Foo()
