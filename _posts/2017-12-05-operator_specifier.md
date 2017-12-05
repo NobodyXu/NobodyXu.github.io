@@ -35,8 +35,12 @@ clang:
 which is quite confusing to me.
 So I do some searching on Stackoverflow, and I found this [Why string concat macro doesn't work for this “+” case?](https://stackoverflow.com/questions/25072193/why-string-concat-macro-doesnt-work-for-this-case), it mainly tells me 2things: 
   1. operator is not a name when defining or declaraing a function, it is a specifier.
-     So, instead of writing `operator+', we should write `operator +`.
-     And that explain why I can write `operator Type`, `operator auto` and `template <class T> operatpr T`,
+     So, instead of writing `operator+`, we should write `operator +`.
+     And that explain why I can write `operator Type`, `operator auto`, `template <class T> operatpr T` and sth. like:
+     ```c++
+     template <class T>
+     void destroy_at(const T *p) { p->~T(); }
+     ```
      So here I should replace the macro with the following code:
      ```c++
      #define DEF_B_OP_TP(OP) \
