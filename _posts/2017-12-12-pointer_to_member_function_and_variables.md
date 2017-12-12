@@ -3,8 +3,9 @@ layout: post
 title: pointer to member functions and variables
 disqus: True
 ---
-###pointer to member functions
-######memory layout
+
+#pointer to member functions
+##memory layout
   The memory layout of member function pointers is actually a bit different from an ordinary pointer. The size of it is twice 
 as an ordinary function pointer. 
   And what it stores is quite different, too. When I store a normal member function in it, the first 8 bytes(a 64-bit machine) 
