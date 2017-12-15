@@ -7,11 +7,13 @@ disqus: True
 When you are compiling a header full of template in different places and they share the same instantation parameters, you'll waste
 a lot of time compiling. Luckily, c++11 introduce "extern template" to solve this problem.
 <p>First, you need to add the following code to every compilation unit to force the compiler to not instantiate the template.
+  
 ```c++
 //it's just like the specialization of a function but with no template paramter list
 extern template ret_t optional classname:: func_name<specific_type>(parms ...);
 ```
 <p>Then, you need to create a .cc file to store the instantation of these functions.
+  
 ```c++
 //some-name.cc
 #include <the-template-header.h>//it can be included in other #include stype\
