@@ -14,6 +14,7 @@ seems to be the address of that member function.
    -  So I guess that, the it might be stored as if it's a member variable pointer, it holds the offset of it, not the absolute
    - address. I defined a derived class from it and overload the virtual function, and what the pointer of it holds 0x0, 0.
 ### The source file for testing the features above
+
 ```c++
 #include <iostream>
 
