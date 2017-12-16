@@ -8,24 +8,15 @@ raised from it.
 
 <p>From [Why string concat macro doesn't work for this “+” case?](https://stackoverflow.com/questions/25072193/why-string-concat-macro-doesnt-work-for-this-case), I learnt that the preprocessing operator `##` can only produce valid preprocessing tokens from other ones.
 > The following tokens are considered as valid preprocessing tokens(N3797):
-
->     header-name
-
->     identifier
-
->     pp-number
-
->     character-literal
-
->     user-defined-character-literal
-
->     string-literal
-
->     user-defined-string-literal
-
->     preprocessing-op-or-punc
-
->     each non-white-space character that cannot be one of the above
+><p>     header-name
+><p>     identifier
+><p>     pp-number
+><p>     character-literal
+><p>     user-defined-character-literal
+><p>     string-literal
+><p>     user-defined-string-literal
+><p>     preprocessing-op-or-punc
+><p>     each non-white-space character that cannot be one of the above
 
 (The quote above is from [Why string concat macro doesn't work for this “+” case?](https://stackoverflow.com/questions/25072193/why-string-concat-macro-doesnt-work-for-this-case))
 <p>  The reason that `#define DEF(OP) #operator##OP` can't work is because operator and OP(which can be +, - ...) are 2 different
