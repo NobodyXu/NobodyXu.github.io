@@ -4,16 +4,17 @@ title: extern template
 disqus: True
 ---
 
-When you are compiling a header full of template in different places and they share the same instantation parameters, you'll waste
-a lot of time compiling. Luckily, c++11 introduce "extern template" to solve this problem.
-<p>First, you need to add the following code to every compilation unit to force the compiler to not instantiate the template.
+When you are compiling a header full of template in different places and they share the same instantation parameters, you'll 
+waste a lot of time compiling them. Luckily, c++11 introduce "extern template" to solve this problem.
+<p>First, you need to add the following code to every compilation unit to force the compiler to not instantiate the template 
+  immediately.
   
 ```c++
 //it's just like the specialization of a function but with no template paramter list
 extern template ret_t optional classname:: func_name<specific_type>(parms ...);
 ```
 
-<p>Then, you need to create a .cc file to store the instantation of these functions.
+Then, you need to create a .cc file to store the instantation of these functions.
   
 ```c++
 //some-name.cc
@@ -25,7 +26,7 @@ Then use ```compiler-name -std=c++11 -c -probably-other-parms some-name.cc``` , 
 <p>and now you can use the samecommand (-probably-other-parms doesn't need to be the ssame) to compile other .cc files that use
 <p>these templates and link them togther. Bingo, they work!
   
-<p>But how about writing a template header and then put some rather frequent used instantiation into a .cc file?
+But how about writing a template header and then put some rather frequent used instantiation into a .cc file?
 <p>I write the following test code to demonstrate how to use it:
   
 ```c++
