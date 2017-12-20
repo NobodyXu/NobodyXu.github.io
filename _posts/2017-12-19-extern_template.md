@@ -96,5 +96,7 @@ Disassembly of section .text._Z5printIiEvRKT_:
 
 It works!
 And the a.out compiled from main.cc can output:
-    1s
-    10
+```
+1s
+10
+```
