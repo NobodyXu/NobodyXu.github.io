@@ -11,23 +11,15 @@ macro-doesnt-work-for-this-case), I learnt that the preprocessing operator `##` 
 other ones.
   
 > The following tokens are considered as valid preprocessing tokens(N3797):
-  
 >     header-name
-
->    identifier
-
+>
+>     identifier
 >     pp-number
-
 >     character-literal
-
 >     user-defined-character-literal
-
 >     string-literal
-
 >     user-defined-string-literal
-
 >     preprocessing-op-or-punc
-
 >     each non-white-space character that cannot be one of the above
 
 (The quote above is from [Why string concat macro doesn't work for this “+” case?](https://stackoverflow.com/questions/25072193/why-string-concat-macro-doesnt-work-for-this-case))
